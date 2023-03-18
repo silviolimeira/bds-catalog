@@ -1,0 +1,77 @@
+Documentação React Props:
+https://pt-br.reactjs.org/docs/components-and-props.html
+
+Documentação React - Getting Started
+https://pt-br.reactjs.org/docs/getting-started.html
+
+Materiais de apoio da trilha
+Bootcamp React 3.0
+07. Layout e navegação
+Material de apoio:
+https://drive.google.com/drive/folders/10avTzXjd_-vZLEVpFOOUash_q3ibVtVJ?usp=sharing
+
+Código fonte DSCatalog front end ao final do Cap 7:
+https://drive.google.com/file/d/1oaF9O5pqke8a02_CfC2K_5TQHhf58TtD/view?usp=sharing
+08. Integração com API
+Material de apoio:
+https://drive.google.com/drive/folders/1rvQrhLeniNhTeAugjRJz5geIFDpFly2C?usp=sharing
+
+Código fonte DSCatalog ao final do Cap 8:
+https://drive.google.com/file/d/14FalGdOJeKcDKoe8jROXewJtCIyv4cWJ/view?usp=sharing
+Back end
+Código fonte DSCatalog back end:
+https://drive.google.com/file/d/1QBC2MDHE6zhmO7nUOWR3ftalXUeC0jty/view?usp=sharing
+
+Collection Postman DSCatalog:
+https://www.getpostman.com/collections/f96a77677066da23165a
+
+Environment no Postman:
+host: http://localhost:8080
+client-id: dscatalog
+client-secret: dscatalog123
+username: maria@gmail.com (ADMIN) ou alex@gmail.com (OPERATOR)
+password: 123456
+token
+
+Script SQL estrutura DSCatalog
+https://drive.google.com/file/d/1jqK-z6mmfT8D1YhnV-QwiuCfvquc28Wn/view?usp=sharing
+
+
+
+
+
+
+
+
+
+
+
+09. Autenticação e autorização
+Material de apoio:
+https://drive.google.com/drive/folders/17czAMNLe98mk8MGjVXmAAB3eWCW3twwu?usp=sharing
+
+Código fonte DSCatalog ao final do Cap 9:
+https://drive.google.com/file/d/1Bc4tj58a2XEARuB_nG4jPxllqPqs6VSY/view?usp=sharing
+10. CRUD, paginação, filtros
+Material de apoio:
+https://drive.google.com/drive/folders/15ZEEcBex3GraTsmfCaAexPxui-ImUkhZ?usp=sharing
+
+Código fonte DSCatalog ao final do Cap 10
+https://drive.google.com/file/d/1Uyw4XDpAbhtIDWJ0FdK3ZtxgTGYorGBe/view?usp=sharing
+11. Testes e implantação
+Material de apoio:
+https://drive.google.com/drive/folders/1scdD0ATQB2tkDYCZUXZWFI9FS9xtQA16?usp=sharing
+
+Código fonte DSCatalog ao final do Cap 11
+https://drive.google.com/file/d/1JzcKWyKRIXboAn8Ggkzq-bhzjk4XTx54/view?usp=sharing
+
+12. Dashboard
+Material de apoio
+https://drive.google.com/drive/folders/1bdHzU5B9z_Pd5pgRqxPBEPybmchp4YU9?usp=sharing
+
+Collection Postman backend DSSales
+https://www.getpostman.com/collections/347146ad69cccc80f06e
+
+Código fonte DSSales Cap 12
+https://drive.google.com/file/d/1u_2O3X-5U8QFnwMTxVbTLnu6Sx9o19Rv/view?usp=sharing
+
