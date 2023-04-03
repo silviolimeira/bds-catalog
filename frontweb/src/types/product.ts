@@ -1,5 +1,10 @@
 import { Category } from "./category"
 
+export type ProductFilterData = {
+    category: Category | null;
+};
+
+
 export type Product = {
     id: number;
     name: string;
