@@ -37,9 +37,9 @@ export const requestBackendLogin = (loginData: LoginData) => {
 export const requestBackend = (config: AxiosRequestConfig) => {
   const headers = config.withCredentials
     ? {
-        ...config.headers,
-        Authorization: 'Bearer ' + getAuthData().access_token,
-      }
+      ...config.headers,
+      Authorization: 'Bearer ' + getAuthData().access_token,
+    }
     : config.headers;
 
   return axios({ ...config, baseURL: BASE_URL, headers });
@@ -64,7 +64,7 @@ axios.interceptors.response.use(
     return response;
   },
   function (error) {
-    if (error.response.status === 401 || error.response.status === 403) {
+    if (error.response.status === 401) {
       history.push('/admin/auth');
     }
     return Promise.reject(error);

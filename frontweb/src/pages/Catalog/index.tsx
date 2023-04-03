@@ -42,6 +42,7 @@ const Catalog = () => {
       params: {
         page: controlComponentsData.activePage,
         size: 4,
+
       },
     };
 
@@ -49,7 +50,6 @@ const Catalog = () => {
     requestBackend(config)
       .then((response) => {
         setPage(response.data);
-        console.log('Catalog Products: ', response.data);
       })
       .finally(() => {
         setIsLoading(false);
