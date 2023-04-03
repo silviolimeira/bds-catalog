@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Pagination from "..";
+import userEvent from "@testing-library/user-event";
 
 describe('Pagination tests', () => {
     test('should render Pagination', () => {
@@ -34,6 +35,48 @@ describe('Pagination tests', () => {
         expect(screen.getByText("2")).toBeInTheDocument();
         expect(screen.getByText("3")).toBeInTheDocument();
         expect(screen.queryByText("4")).not.toBeInTheDocument();
+    })
+
+    test('next arrow should call onChange', () => {
+        // arrange
+        const pageCount = 3;
+        const range = 3;
+        const onChange = jest.fn();
+
+        // expect
+        render(
+            <Pagination
+                pageCount={pageCount}
+                range={range}
+                onChange={onChange} />
+        )
+
+        const arrowNext = screen.getByTestId("arrow-next");
+
+        userEvent.click(arrowNext);
+        expect(onChange).toHaveBeenCalledWith(1);
+
+    })
+
+    test('previous arrow should call onChange', () => {
+        // arrange
+        const pageCount = 3;
+        const range = 3;
+        const forcePage = 1;
+        const onChange = jest.fn();
+        // expect
+        render(
+            <Pagination
+                pageCount={pageCount}
+                range={range}
+                onChange={onChange} />
+        )
+
+        const page2 = screen.getByText("2");
+
+        userEvent.click(page2);
+        expect(onChange).toHaveBeenCalledWith(1);
+
     })
 })
 
