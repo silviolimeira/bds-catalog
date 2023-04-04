@@ -1,8 +1,8 @@
 import ProductCard from 'components/ProductCard';
-import { Product, ProductFilterData } from 'types/product';
+import { Product } from 'types/product';
 import { Link } from 'react-router-dom';
 import Pagination from 'components/Pagination';
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { SpringPage } from 'types/vendor/spring';
 import { requestBackend } from 'util/requests';
 import { AxiosRequestConfig } from 'axios';
@@ -10,55 +10,33 @@ import CardLoader from './CardLoader';
 
 import './styles.css';
 
-type ControlComponentsData = {
-  activePage: number;
-  filterData: ProductFilterData;
-};
-
-
 const Catalog = () => {
   const [page, setPage] = useState<SpringPage<Product>>();
-
-  const [controlComponentsData, setControlComponentsData] =
-    useState<ControlComponentsData>({
-      activePage: 0,
-      filterData: { category: null },
-    });
-
-  const handlePageChange = (pageNumber: number) => {
-    setControlComponentsData({
-      activePage: pageNumber,
-      filterData: controlComponentsData.filterData,
-    });
-  };
-
   const [isLoading, setIsLoading] = useState(false);
 
-  const getProducts = useCallback(() => {
-    const config: AxiosRequestConfig = {
+  const getProducts = (pageNumber: number) => {
+    const params: AxiosRequestConfig = {
       method: 'GET',
       url: '/products',
-      withCredentials: true,
       params: {
-        page: controlComponentsData.activePage,
-        size: 4,
-
+        page: pageNumber,
+        size: 12,
       },
     };
 
     setIsLoading(true);
-    requestBackend(config)
+    requestBackend(params)
       .then((response) => {
         setPage(response.data);
       })
       .finally(() => {
         setIsLoading(false);
       });
-  }, [controlComponentsData]);
+  };
 
   useEffect(() => {
-    getProducts();
-  }, [getProducts]);
+    getProducts(0);
+  }, []);
 
   return (
     <div className="container my-4 catalog-container">
@@ -67,22 +45,26 @@ const Catalog = () => {
       </div>
 
       <div className="row">
-        {isLoading ? <CardLoader /> : (
+        {isLoading ? (
+          <CardLoader />
+        ) : (
           page?.content.map((product) => (
             <div className="col-sm-6 col-lg-4 col-xl-3" key={product.id}>
               <Link to="/products/1">
                 <ProductCard product={product} />
               </Link>
             </div>
-          )))}
+          ))
+        )}
       </div>
 
-      <Pagination
-        forcePage={page?.number}
-        pageCount={page ? page?.totalPages : 0}
-        range={3}
-        onChange={handlePageChange}
-      />
+      <div className="row">
+        <Pagination
+          pageCount={page ? page?.totalPages : 0}
+          range={3}
+          onChange={getProducts}
+        />
+      </div>
     </div>
   );
 };
